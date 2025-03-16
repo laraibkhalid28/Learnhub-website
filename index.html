@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub - Empowering Education</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff3e0;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: #f0f0f0;
+        }
+        nav {
+            background-color: #ff9800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            color: white;
+        }
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .social-icons img {
+            width: 30px;
+            margin: 0 5px;
+        }
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .hero {
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            color: white;
+            padding: 100px 20px;
+            font-size: 28px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        .major-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+        }
+        .major {
+            width: 45%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            background: white;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .major img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .dark-mode .major {
+            background: #333;
+            color: #f0f0f0;
+        }
+        .major:hover {
+            transform: scale(1.05);
+        }
+        .course-container {
+            display: none;
+            margin-top: 10px;
+        }
+        .course {
+            background: #ff9800;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dark-mode .course {
+            background: #ff5722;
+            color: white;
+        }
+        .offer-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .offer-button.clicked {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        /* Contact Form Styles */
+        .contact-form {
+            background: white;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode .contact-form {
+            background: #333;
+            color: #f0f0f0;
+        }
+        .contact-form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ff9800;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .contact-form button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span> LearnHub</span>
+        <div class="social-icons">
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+        </div>
+    </nav>
+    <div class="hero">
+        <h1>Empower Your Future with Knowledge</h1>
+        <p>Access the best courses to upskill and achieve your dreams</p>
+    </div>
+    <div class="major-container" id="majors">
+        <div class="major" onclick="toggleCourses(this)">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Computer Science">
+            <h2>Computer Science</h2>
+            <div class="course-container">
+                <div class="course">Web Development <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Machine Learning <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Data Structures <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+            </div>
+        </div>
+        <div class="major" onclick="toggleCourses(this)">
+            <img src="https://res.cloudinary.com/jerrick/image/upload/v1674626147/63d0c463aba6d6001df84ce6.jpg" alt="Electrical Engineering">
+            <h2>Electrical Engineering</h2>
+            <div class="course-container">
+                <div class="course">Circuit Design <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Embedded Systems <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Power Systems <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+            </div>
+        </div>
+        <div class="major" onclick="toggleCourses(this)">
+            <img src="https://static4.depositphotos.com/1011764/330/i/450/depositphotos_3306463-stock-photo-blueprint.jpg" alt="Mechanical Engineering">
+            <h2>Mechanical Engineering</h2>
+            <div class="course-container">
+                <div class="course">Thermodynamics <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Fluid Mechanics <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Robotics <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+            </div>
+        </div>
+        <div class="major" onclick="toggleCourses(this)">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Business Administration">
+            <h2>Business Administration</h2>
+            <div class="course-container">
+                <div class="course">Marketing <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Finance <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Human Resource Management <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+            </div>
+        </div>
+        <div class="major" onclick="toggleCourses(this)">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Civil Engineering">
+            <h2>Civil Engineering</h2>
+            <div class="course-container">
+                <div class="course">Structural Analysis <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Geotechnical Engineering <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+                <div class="course">Transportation Engineering <button class="offer-button" onclick="handleOfferClick(this)">View Offer</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Me Form -->
+    <div class="contact-form">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <span>&copy; 2025 LearnHub. All rights reserved.</span>
+    </footer>
+    <script>
+        function toggleCourses(element) {
+            let courses = element.querySelector(".course-container");
+            courses.style.display = courses.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function handleOfferClick(button) {
+            if (button.textContent === "View Offer") {
+                button.textContent = "Clicked";
+                button.classList.add("clicked");
+            } else {
+                button.textContent = "View Offer";
+                button.classList.remove("clicked");
+            }
+        }
+    </script>
+</body>
+</html>
